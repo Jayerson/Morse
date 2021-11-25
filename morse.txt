@@ -1,0 +1,21 @@
+
+dot, dash, next, space, end buttons > send to english output
+collect text
+on promise:
+convert
+concat to previous
+return
+
+call and display
+
+text > morse paragraph
+collect text
+on promise:
+convert
+concat space to each letter, unless space or punct
+return
+
+call and display
+
+Image: Morse Code
+By Rhey T. Snodgrass & Victor F. Camp, 1922 - Public Domain, https://commons.wikimedia.org/w/index.php?curid=3902977
