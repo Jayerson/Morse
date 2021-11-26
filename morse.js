@@ -1,35 +1,59 @@
 
-// ASCII text const
-const textIn = document.getElementById("text");
-
-// Morse button text
-const motion = document.querySelectorAll("morse__button");
-const morseValue = ((motion) => document.getElementsByClassName(motion).attributes.id.value);
 let phraseOut = "";
 let phraseIn = "";
 
+// ASCII text const
+const textIn = document.getElementById("text");
 
-const collectMorse = (() => {
-    morseValue.map((item) => {
-        item.addEventListener("click", () => {
-            switch (item.id) {
-                case "dot":
-                    return (item = ".");
-                case "dash":
-                    return (item = "_");
-                case "next":
-                    return (item = "/");
-                case "space":
-                    return (item = " ");
-            }
-        phraseIn += item;
-        });
+// Collect Morse
+let morseValue = "";
+const motion = document.querySelectorAll("morse__button");
+morseValue += ((motion = motion) => document
+    .getElementsByClassName(motion).attributes.id.value, 0);
+
+let morse =[];
+
+function collectMorse (object = morseValue) {
+    object.map((item) => {
+        switch (item) {
+            case "dot":
+                return (phraseIn += ".");
+            case "dash":
+                return (phraseIn += "_");
+            case "next":
+                return (phraseIn += "/");
+            case "space":
+                return (phraseIn += " /");
+        }
+    return phraseIn;
     });
-});
+return morse = phraseIn.split("/");
+}
 
-const morseToText = ((message) => {
-    const morse = message.split("/");
-    phraseOut = morse.map((letter) => {
+
+// collectMorse() on button
+// morseToText();
+
+// or
+// letters();
+// textToMorse();
+
+const translate = () => {
+    if (morse.length() == 0 && textIn.length() == 0) {
+        phraseOut = "One input type at a time please";
+    } else if (morse.length == 0 && textIn.length != 0) {
+        textToMorse();
+    } else if (morse.length != 0 && textIn.length == 0) {
+        let letters = textIn.toUpperCase.split("");
+        morseToText();
+    } else phraseOut = "No input found";
+    document.querySelector("p").innerText = `${phraseOut}`;
+};
+
+// map functions, long
+
+const morseToText = (each = morse) => {
+    phraseOut = each.map((letter) => {
         switch (letter) {
             case "._": return (letter = "A");
             case "_...": return (letter = "B");
@@ -83,14 +107,15 @@ const morseToText = ((message) => {
             case "_.._": return (letter = "*");
             case ".__._.": return (letter = "@");
             case " ": return (letter = " ");
-            default: return;
+            default: return (letter = "#");
         }
     });
-});
+    return phraseOut;
+};
 
-const textToMorse = ((message) => {
-    phraseOut = message.forEach((letter) => {
-        switch (letter.toUpppercase()) {
+const textToMorse = (text = letters) => {
+    phraseOut = text.map((letter) => {
+        switch (letter) {
             case "A": return (letter = "._");
             case "B": return (letter = "_... ");
             case "C": return (letter = "_._. ");
@@ -145,21 +170,6 @@ const textToMorse = ((message) => {
             case " ": return (letter = "   ");
             default: return;    
         }
-    });
-});
-
-function translate() {
-    if (textIn === "" && morseValue !== "") {
-        collectMorse();
-        console.log(collectMorse);
-        console.log(phraseIn);
-        phraseOut = morseToText(phraseIn);
-    } else if (textIn !== "" && morseValue === "") {
-        console.log(textIn);
-        phraseOut = textToMorse(textIn);
-    } else { phraseOut = "One input type at a time please"; }
-    console.log(phraseOut);
-    document.querySelector("p").innerText = `${phraseOut}`;
-    phraseIn = "";
-    phraseOut = "";
-}
+    })
+    return phraseOut;
+};

@@ -14,10 +14,12 @@
             <legend>Morse-ASCII Translator</legend>
             <div class="morse">
                 <h2>Morse Input</h2>
-                <button class="morse__button" id="dot">. (dot)</button>
-                <button class="morse__button" id="dash">_ (dash)</button>
-                <button class="morse__button" id="next">Next Character</button>
-                <button class="morse__button" id="space">(spacebar)</button>
+                <button class="morse__button" id="dot" onclick="collectMorse()">. (dot)</button>
+                <button class="morse__button" id="dash" onclick="collectMorse()">_ (dash)</button>
+                <button class="morse__button" id="next" onclick="collectMorse()"
+                    >Next Character</button>
+                <button class="morse__button" id="space" onclick="collectMorse()"
+                    >(spacebar)</button>
             </div>
             <div class="ascii">
                 <h2>ASCII Input</h2>
